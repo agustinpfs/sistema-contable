@@ -1,0 +1,70 @@
+<% include partials/_header %>
+
+<pre>
+        <%= counts %>
+
+</pre>
+
+<h1>hola</h1>
+<form action="/addCount" method="post">
+    <input type="text" name="name" placeholder="Nombre de cuenta">
+
+    <select class="form-control" name="type" required>
+        <option value='ACTIVO'>ACTIVO</option>
+        <option value='PASIVO'>PASIVO</option>
+        <option value='PN'>PN</option>
+        <option value='RESULTADO'>RESULTADO</option>
+    </select>
+    <button type="submit">Crear</button>
+
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre Cuenta</th>
+            <th>Tipo de cuenta</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0; i < counts.length; i++) { %>
+        <tr>
+            <td><%= i + 1%></td>
+            <td><strong><%= counts[i].name %></strong></td>
+            <td><%= counts[i].type %></td>
+            <td>
+                <a href="/delete/<%= counts[i]._id %>">
+                    Delete 
+                </a>
+                <br>
+               
+                <h3>Editar</h3>
+           
+                    <!-- <a href="/edit/<%= counts[i]._id %>">
+                        Edit
+                    </a> -->
+
+                    <form action="/edit/<%= counts._id %>" method="post">
+                        <input type="text" name="name" placeholder="Nombre" value="<%= counts.name %>">
+                        <select name="type" required>
+                            <option value='ACTIVO'>ACTIVO</option>
+                            <option value='<%= counts.type %>'>ACTIVO</option>
+                            <option value='PASIVO'>PASIVO</option>
+                            <option value='PN'>PN</option>
+                            <option value='RESULTADO'>RESULTADO</option>
+                        </select>
+                    
+                        <button type="submit">
+                            Update
+                        </button>
+                    </form>
+                   
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+        </table>
+
+
+
