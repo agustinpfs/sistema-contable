@@ -40,8 +40,9 @@ Display in localhost:4000/
 
 ## Contributing
 
-[Donate Bitcoin](https://bitcoin:3FMHddadN2Np1wNupFsxdw5MCZLtZLAGYn)
- 
+### Donate Bitcoin
+
+3FMHddadN2Np1wNupFsxdw5MCZLtZLAGYn
 
 ## Authors
 
