@@ -50,7 +50,7 @@ Display in localhost:4000/
 
 * **Agustin Palmieri** - [Agustinpfs](https://github.com/agustinpfs)
 
-* **Santiago Perez** - [Santiago](https://github.com/agustinpfs)
+* **Santiago Perez** - [Santiago](https://github.com/SantiPerez17)
 
 ## License
 
