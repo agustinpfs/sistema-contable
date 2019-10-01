@@ -41,24 +41,12 @@
                
                 <h3>Editar</h3>
            
-                    <!-- <a href="/edit/<%= counts[i]._id %>">
+                    <a href="/edit/<%= counts[i]._id %>">
                         Edit
-                    </a> -->
+                    </a>
 
                     <form action="/edit/<%= counts._id %>" method="post">
-                        <input type="text" name="name" placeholder="Nombre" value="<%= counts.name %>">
-                        <select name="type" required>
-                            <option value='ACTIVO'>ACTIVO</option>
-                            <option value='<%= counts.type %>'>ACTIVO</option>
-                            <option value='PASIVO'>PASIVO</option>
-                            <option value='PN'>PN</option>
-                            <option value='RESULTADO'>RESULTADO</option>
-                        </select>
-                    
-                        <button type="submit">
-                            Update
-                        </button>
-                    </form>
+     
                    
             </td>
         </tr>

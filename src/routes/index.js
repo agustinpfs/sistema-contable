@@ -38,18 +38,18 @@ router.post('/addCount', async (req, res, next) => {
 });
 
 
-// router.get('/edit/:id', async (req, res, next) => {
-//     let { id } = req.params;
-//     const count = await Count.findById(id);
-//     // res.redirect('/addCount');
-//     res.render('edit', { count });
-// });
+router.get('/edit/:id', async (req, res, next) => {
+    let { id } = req.params;
+    const count = await Count.findById(id);
+    // res.redirect('/addCount');
+    res.render('edit', { count });
+});
 
 router.post('/edit/:id', async (req, res, next) => { 
     const { id } = req.params;
     await Count.update({ _id: id }, req.body); 
-    // res.redirect('/addCount');
-    res.render('addCount', { count });
+    res.redirect('/addCount');
+    // res.render('addCount', { count });
 });
 
 
