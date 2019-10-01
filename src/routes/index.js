@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router(); 
 const Count = require('../model/counts'); 
+const Asiento = require('../model/asientos'); 
 
 
 router.get('/', (req, res) => {
@@ -19,10 +20,20 @@ router.get('/addCount', async (req, res) => {
     });
 });
 
+router.get('/crear-asiento', async (req, res) => {
+    const asientos = await Asiento.find();
+    // console.log(counts);
+    res.render('crear-asiento', {    //en settings está configurado en app.js
+        asientos   // lo mismo que countss:countss  // paso las tareas para mostrarse en pantalla
+    });
+});
+
 router.post('/addCount', async (req, res, next) => {
     const count = new Count(req.body);
+    const asiento = new Asiento(req.body);
     // console.log(counts);
     await count.save(); //para que se almacene en la db con async await 
+    await asiento.save(); //para que se almacene en la db con async await 
     res.redirect('/addCount');  // redirecciona a la ruta inicial del servidor
 });
 
