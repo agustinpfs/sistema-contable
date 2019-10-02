@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var Cuenta = mongoose.model('counts');
+
 
 
 const AsientoSchema = new Schema({
-    fecha: Date,
-    name: String,
-    type: String,
+    // fecha: Date,
+    name: { type: Schema.ObjectId, ref: "Cuenta" }
+    
+    // type: String,
     // type: [{ type: Schema.Types.ObjectId, ref: 'counts' }]
 })
 

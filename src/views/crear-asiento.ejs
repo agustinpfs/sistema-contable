@@ -4,3 +4,25 @@
         <%= asientos %>
 
 </pre>
+
+
+<div>
+        <a href="/addCount">Crear Cuenta</a>
+        <a href="/crear-asiento">Crear Asiento</a>
+        <a href="/ver-libros">Ver Libros</a>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<form action="">
+       
+        <select name="" id="">
+                <% for(var i=0; i < asientos.length; i++) { %>
+                <option value=""><%= asientos[i].name %></option>
+        
+                <% } %>
+        </select>
+       
+</form>

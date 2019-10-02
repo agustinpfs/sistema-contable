@@ -7,12 +7,12 @@ const CountSchema = new Schema({
     
 });
 
-const AsientoSchema = new Schema({
-    fecha: Date,
-    name: String,
-    type: String,
-    // type: [{ type: Schema.Types.ObjectId, ref: 'counts' }]
-})
+// const AsientoSchema = new Schema({
+//     fecha: Date,
+//     name: String,
+//     type: String,
+//     // type: [{ type: Schema.Types.ObjectId, ref: 'counts' }]
+// })
 
 module.exports = mongoose.model('counts', CountSchema);
 
