@@ -40,7 +40,7 @@ Display in localhost:4000/
 
 ## Contributing
 
-### Donate Bitcoin
+### Wallet BTC
 
 3FMHddadN2Np1wNupFsxdw5MCZLtZLAGYn
 
