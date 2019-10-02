@@ -22,10 +22,23 @@ router.get('/addCount', async (req, res) => {
 
 router.get('/crear-asiento', async (req, res) => {
     const asientos = await Count.find();//.populate("name");
+    const nvo_asiento = await Asiento.find();//.populate("name");
     // console.log(counts);
     res.render('crear-asiento', {    //en settings está configurado en app.js
-        asientos   // lo mismo que countss:countss  // paso las tareas para mostrarse en pantalla
+        asientos, nvo_asiento   // lo mismo que countss:countss  // paso las tareas para mostrarse en pantalla
     });
+    // res.render('crear-asiento', {    //en settings está configurado en app.js
+    //     nvo_asiento   // lo mismo que countss:countss  // paso las tareas para mostrarse en pantalla
+    // });
+});
+
+router.post('/crear-asiento', async (req, res, next) => {
+    const nvo_asiento = new Asiento(req.body);
+    // const asiento = new Asiento(req.body);
+    // //console.log(counts);
+    await nvo_asiento.save(); //para que se almacene en la db con async await 
+    // await asiento.save(); //para que se almacene en la db con async await 
+    res.redirect('/crear-asiento');  // redirecciona a la ruta inicial del servidor
 });
 
 

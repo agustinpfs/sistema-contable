@@ -28,7 +28,8 @@
     <button type="submit">Crear</button>
 
 </form>
-</form>
+
+
 
 <table>
     <thead>
@@ -48,18 +49,17 @@
                 <a href="/delete/<%= counts[i]._id %>">
                     Delete 
                 </a>
-                <br>
-               
-                <h3>Editar</h3>
+            </td>
+               <td>
            
                     <a href="/edit/<%= counts[i]._id %>">
                         Edit
                     </a>
 
-                    <form action="/edit/<%= counts._id %>" method="post">
-     
+                    <!-- <form action="/edit/<%= counts._id %>" method="post"> -->
+    </td>
                    
-            </td>
+        
         </tr>
         <% } %>
         </tbody>

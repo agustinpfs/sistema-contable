@@ -2,7 +2,10 @@
 
 <pre>
         <%= asientos %>
+</pre>
 
+<pre>
+        <%= nvo_asiento %>
 </pre>
 
 
@@ -16,8 +19,72 @@
 <br>
 <br>
 
-<form action="">
-       
+<h1>crear asiento</h1>
+<form action="/crear-asiento" method="post">
+        <strong>Fecha: </strong>         
+        <input type="date" name="fecha" >
+        <br>
+        <br>
+        <strong>Elija cuenta: </strong> 
+        <select name="cuenta" id="">
+                <% for(var i=0; i < asientos.length; i++) { %>
+                <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
+                <% } %>
+        </select>
+        <input type="radio" name="dh" value="debe" checked> Debe
+        <input type="radio" name="dh" value="haber"> Haber
+        <br>
+        <br>
+        <strong>Importe: </strong>
+        <input type="number" name="importe">
+        <button type="submit">Añadir al asiento</button>
+
+</form>
+
+<table>
+        <thead>
+                <tr>
+                        <th>N°</th>
+                        <th>fecha</th>
+                        <th>Nombre Cuenta</th>
+                        <th>Debe/haber</th>
+                        <!-- <th>Haber</th> -->
+                        <th>importe</th>
+                </tr>
+        </thead>
+        <tbody>
+                <% for(var i=0; i < nvo_asiento.length; i++) { %>
+                <tr>
+                        <td><%= i + 1%></td>
+                        <td><strong><%= nvo_asiento[i].fecha %></strong></td>
+                        <td><strong><%= nvo_asiento[i].cuenta %></strong></td>
+                        <td><strong><%= nvo_asiento[i].dh %></strong></td>
+                        <td><strong><%= nvo_asiento[i].importe %></strong></td>
+                       
+
+
+                        </td>
+
+
+                </tr>
+                <% } %>
+        </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form action="">
+        <input type="date" name="bday">
         <select name="" id="">
                 <% for(var i=0; i < asientos.length; i++) { %>
                 <option value=""><%= asientos[i].name %></option>
@@ -26,3 +93,36 @@
         </select>
        
 </form>
+<form>
+        <div class="multiselect">
+                <div class="selectBox" onclick="showCheckboxes()">
+                        <select>
+                                <option>Select an option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes">
+                        <label for="one">
+                                <input type="checkbox" id="one" />First checkbox</label>
+                        <label for="two">
+                                <input type="checkbox" id="two" />Second checkbox</label>
+                        <label for="three">
+                                <input type="checkbox" id="three" />Third checkbox</label>
+                </div>
+        </div>
+</form>
+
+<script>
+var expanded = false;
+
+function showCheckboxes() {
+var checkboxes = document.getElementById("checkboxes");
+if (!expanded) {
+checkboxes.style.display = "block";
+expanded = true;
+} else {
+checkboxes.style.display = "none";
+expanded = false;
+}
+}
+</script> -->
