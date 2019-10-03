@@ -1,7 +1,7 @@
 {
   "name": "sistema-contable1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Características:",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
@@ -18,5 +18,13 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agustinpfs/sistema-contable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agustinpfs/sistema-contable/issues"
+  },
+  "homepage": "https://github.com/agustinpfs/sistema-contable#readme"
 }
