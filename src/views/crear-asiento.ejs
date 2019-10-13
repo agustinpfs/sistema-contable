@@ -1,5 +1,7 @@
 <% include partials/_header %>
 
+
+
 <pre>
         <%= asientos %>
 </pre>
@@ -18,28 +20,89 @@
 <br>
 <br>
 <br>
+<script src="/crearasiento.js"></script>
+<!-- <script>
+        // const Asiento = require('../model/asientos'); 
+
+        // const Asiento = require('../model/asientos');
+        const allInfo = [];
+
+        // document.getElementById("ctas").value = allInfo;
+        // Asiento.insertOne({ cuentas: allInfo });
+        //  us.save();
+        function test() {
+                // var allInfo = [];
+                let cuentas = {};//create an empty object
+                cuentas.nombre = document.getElementById('nombre').value;
+                cuentas.debe = document.getElementById('debe').value;
+                cuentas.haber = document.getElementById('haber').value;
+                cuentas.importe = document.getElementById('importe').value;
+                allInfo.push(cuentas);//you had to initialize the array before
+                // document.getElementById("ctas").value = JSON.stringify(allInfo);
+                // document.getElementById("demo").innerHTML = document.getElementById('importe').value;
+                // return cuentas;
+                // <pre>cuentas</pre>
+                // return allInfo;
+                // const asient = Asiento.updateOne({ "numero_asiento": 1 }, { $set: { "cuenta": allInfo } });
+        }
+
+        // module.exports = test;
+
+        // document.getElementById("demo").innerHTML = test();
+        // test();
+        // const allInfo = [];
+
+        // function insertar(){
+        // const us = Asiento.insertOne({ cuentas: allInfo });
+        //  us.save();
+        // }
+
+        //    function insertar() {
+        //            return allInfo;
+        //         }
+
+
+
+
+</script> -->
+
 
 <h1>crear asiento</h1>
 <form action="/crear-asiento" method="post">
-        <strong>Fecha: </strong>         
-        <input type="date" name="fecha" >
+        <strong>Nª: </strong>
+        <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>">
+        <strong>Fecha: </strong>
+        <input type="date" name="fecha">
         <br>
         <br>
-        <strong>Elija cuenta: </strong> 
-        <select name="cuenta" id="">
-                <% for(var i=0; i < asientos.length; i++) { %>
-                <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
-                <% } %>
-        </select>
-        <input type="radio" name="dh" value="debe" checked> Debe
-        <input type="radio" name="dh" value="haber"> Haber
-        <br>
-        <br>
-        <strong>Importe: </strong>
-        <input type="number" name="importe">
-        <button type="submit">Añadir al asiento</button>
+        <!-- <input type="text" id = ctas name="cuenta" value= allInfo > -->
+        <button type="submit" >crear asiento</button>
+        <!-- <button type="submit" onClick="insertar()">crear asiento</button> -->
 
 </form>
+
+        <form action="/crear-asiento" method="post">
+                <strong>Elija cuenta: </strong>
+                <select name='nombre' id='nombre'>
+                        <% for(var i=0; i < asientos.length; i++) { %>
+                        <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
+                        <% } %>
+                </select>
+                <input type="radio" name="debe" value="debe" id='debe'> Debe
+                <input type="radio" name="haber" value="haber" id='haber'> Haber
+                <br>
+                <br>
+                <strong>Importe: </strong>
+                <input type="number" name="importe" id="importe">
+                <input type="button" value="añadir al asiento" onClick="test()">
+                <!-- <button type="submit" onClick="test()">añadir</button>  -->
+
+         </form> 
+
+
+
+                <!-- <a href="/crear-asiento2">aaaaaaaaa</a> -->
+
 
 <table>
         <thead>
@@ -54,13 +117,16 @@
         </thead>
         <tbody>
                 <% for(var i=0; i < nvo_asiento.length; i++) { %>
+                
+
                 <tr>
                         <td><%= i + 1%></td>
+                        <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td>
                         <td><strong><%= nvo_asiento[i].fecha %></strong></td>
                         <td><strong><%= nvo_asiento[i].cuenta %></strong></td>
                         <td><strong><%= nvo_asiento[i].dh %></strong></td>
                         <td><strong><%= nvo_asiento[i].importe %></strong></td>
-                       
+
 
 
                         </td>
@@ -70,8 +136,6 @@
                 <% } %>
         </tbody>
 </table>
-
-
 
 
 

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const CountSchema = new Schema({ 
     name: String,
-    type: String,
+    type: String
     
 });
 

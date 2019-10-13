@@ -4,18 +4,39 @@ const Schema = mongoose.Schema;
 
 
 
+// const AsientoSchema = new Schema({
+//     numero_asiento: Number,
+//     fecha: Date,
+//     cuentas: [{
+//         nombre: String,
+//         debe: String,
+//         haber: String,
+//         importe: Number
+//     }],
+
+// const 
+
+
+
 const AsientoSchema = new Schema({
     numero_asiento: Number,
     fecha: Date,
-    importe: Number,
-    cuenta: String,
-    dh: String
-
-    // name: { type: Schema.ObjectId, ref: "Cuenta" }
-    
+    cuenta: Array,
+    // cuenta: [{
+    //             nombre: String,
+    //             debe: String,
+    //             haber: String,
+    //             importe: Number
+    //         }],
+    // dh: String,
+    // importe: Number
+    // name: { type: Schema.ObjectId, ref: "Cuenta" }  
     // type: String,
     // type: [{ type: Schema.Types.ObjectId, ref: 'counts' }]
 })
 
+
+// const Up = mongoose.model('asientos', AsientoSchema);
+// const user = await Up.findOne({ name: 'leo' });
 
 module.exports = mongoose.model('asientos', AsientoSchema);

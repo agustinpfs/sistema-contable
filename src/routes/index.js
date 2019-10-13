@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router(); 
 const Count = require('../model/counts'); 
 const Asiento = require('../model/asientos'); 
+// const viewAsiento = require('../views/crear-asiento'); 
+
+
+
 
 
 router.get('/', (req, res) => {
@@ -20,6 +24,15 @@ router.get('/addCount', async (req, res) => {
     });
 });
 
+router.post('/addCount', async (req, res, next) => {
+    const count = new Count(req.body);
+    // const asiento = new Asiento(req.body);
+    // //console.log(counts);
+    await count.save(); //para que se almacene en la db con async await 
+    // await asiento.save(); //para que se almacene en la db con async await 
+    res.redirect('/addCount');  // redirecciona a la ruta inicial del servidor
+});
+
 router.get('/crear-asiento', async (req, res) => {
     const asientos = await Count.find();//.populate("name");
     const nvo_asiento = await Asiento.find();//.populate("name");
@@ -34,12 +47,18 @@ router.get('/crear-asiento', async (req, res) => {
 
 router.post('/crear-asiento', async (req, res, next) => {
     const nvo_asiento = new Asiento(req.body);
+    // await nvo_asiento.set({ cuenta:allInfo });
     // const asiento = new Asiento(req.body);
     // //console.log(counts);
     await nvo_asiento.save(); //para que se almacene en la db con async await 
+    // await q.save(); //para que se almacene en la db con async await 
     // await asiento.save(); //para que se almacene en la db con async await 
     res.redirect('/crear-asiento');  // redirecciona a la ruta inicial del servidor
 });
+
+
+
+
 
 
 // app.get("/crear-asiento", function (req, res) {
@@ -57,14 +76,7 @@ router.post('/crear-asiento', async (req, res, next) => {
 
 
 
-router.post('/addCount', async (req, res, next) => {
-    const count = new Count(req.body);
-    // const asiento = new Asiento(req.body);
-    // //console.log(counts);
-    await count.save(); //para que se almacene en la db con async await 
-    // await asiento.save(); //para que se almacene en la db con async await 
-    res.redirect('/addCount');  // redirecciona a la ruta inicial del servidor
-});
+
 
 
 router.get('/edit/:id', async (req, res, next) => {

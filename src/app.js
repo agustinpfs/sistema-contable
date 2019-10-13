@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connection to db
-mongoose.connect('mongodb://localhost/sist-cont') 
+mongoose.connect('mongodb://localhost/sist-cont') //sist-cont nom
     .then(db => console.log('db connected')) 
     .catch(err => console.log(err));
 
@@ -21,6 +21,8 @@ const indexRoutes = require('./routes/index');
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'j')))
+
 
 
 // middlewares
