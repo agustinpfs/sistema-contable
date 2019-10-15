@@ -21,7 +21,8 @@ const Schema = mongoose.Schema;
 const AsientoSchema = new Schema({
     numero_asiento: Number,
     fecha: Date,
-    cuenta: String,
+    // cuenta: JSON.parse({ type: String }),
+    cuenta: Array,
     // cuenta: [{
     //             nombre: String,
     //             debe: String,
