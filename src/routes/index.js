@@ -46,7 +46,11 @@ router.get('/crear-asiento', async (req, res) => {
 });
 
 router.post('/crear-asiento', async (req, res, next) => {
-    const nvo_asiento = new Asiento(req.body);
+    const nvo_asiento = new Asiento();
+    nvo_asiento.fecha = req.body.fecha;
+    nvo_asiento.cuenta = req.body.cuenta;
+    // nvo_asiento.cuenta = JSON.parse(req.body.cuenta);
+    // const { cuenta } = req.body; 
     // await nvo_asiento.set({ cuenta:allInfo });
     // const asiento = new Asiento(req.body);
     // //console.log(counts);

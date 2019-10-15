@@ -1,7 +1,7 @@
 // const mongoose = require('mongoose');
 // const Asiento = require('../model/asientos');
 
-const allInfo = [];
+const cuenta = [];
 
 function test() {
 
@@ -11,7 +11,9 @@ function test() {
     cuentas.debe = document.getElementById('debe').value;
     cuentas.haber = document.getElementById('haber').value;
     cuentas.importe = document.getElementById('importe').value;
-    allInfo.push(cuentas);//you had to initialize the array before
+    cuenta.push(cuentas);//you had to initialize the array before
+    document.getElementById("ctas").value = JSON.stringify(cuenta);
+
     // Asiento.updateOne({ "numero_asiento": 1 }, { $set: { "cuenta": allInfo } });
     // document.getElementById("demo").innerHTML = document.getElementById('importe').value;
     // return cuentas;
