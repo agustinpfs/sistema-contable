@@ -40,8 +40,8 @@
                 <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
                 <% } %>
         </select>
-        <input type="radio" name="debe" value="debe" id='debe'> Debe
-        <input type="radio" name="haber" value="haber" id='haber'> Haber
+        <input type="radio" name="debe" value="debe" id='debe'> Deb
+        <input type="radio" name="haber" value="haber" id='haber'> Habe
         <br>
         <br>
         <strong>Importe: </strong>
@@ -50,28 +50,47 @@
 </form> 
 
 
-<table>
+<table border="1">
     <thead>
         <tr>
-            <th>N°</th>
-            <th>fecha</th>
-            <th>Nombre Cuenta</th>
-            <th>Debe/haber</th>
-            <!-- <th>Haber</th> -->
-            <th>importe</th>
+            <th style = "width: 5%">N°</th>
+            <th style = "width: 10%">fecha</th>
+            <th style = "width: 85%">
+                <table border="1" style = "width: 100%">
+                <thead>
+                    <th style = "width: 25%">Nombre Cuenta</th>
+                    <th style = "width: 25%">hebe</th>
+                    <th style = "width: 25%">Haber</th>
+                    <th style = "width: 25%">importe</th>
+                </thead>
+                </table>
+            </th>
         </tr>
     </thead>
     <tbody>
-            <% for(var i=0; i < nvo_asiento.length; i++) { %>
-            <tr>
-                    <td><%= i + 1%></td>
-                    <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td>
-                    <td><strong><%= nvo_asiento[i].fecha %></strong></td>
-                    <td><strong><%= nvo_asiento[i].cuenta %></strong></td>
-                    <td><strong><%= nvo_asiento[i].dh %></strong></td>
-                    <td><strong><%= nvo_asiento[i].importe %></strong></td>
-                    </td>
-            </tr>
-            <% } %>
+        <% for(var i=0; i < nvo_asiento.length; i++) { %>
+        <tr>
+            <td><%= i + 1%></td>
+            <!-- <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td> -->
+            <td><strong><%= nvo_asiento[i].fecha %></strong></td>
+
+
+            <td>  
+                <table border="1" style="width: 100%">
+                    <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
+                <tr>
+                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
+                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].debe %></strong></td>
+                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].haber %></strong></td>
+                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
+                </tr>
+                <% } %>
+                </table>
+            </td>
+            
+
+
+        </tr>
+        <% } %>
     </tbody>
 </table>
