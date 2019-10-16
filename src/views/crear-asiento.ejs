@@ -72,11 +72,11 @@
         <tr>
             <td><%= i + 1%></td>
             <!-- <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td> -->
-            <td><strong><%= nvo_asiento[i].fecha %></strong></td>
+            <td><strong><%=  nvo_asiento[i].fecha.getDate() + '/'+(nvo_asiento[i].fecha.getMonth()+1) +'/' +nvo_asiento[i].fecha.getFullYear() %></strong></td>
 
 
             <td>  
-                <table border="1" style="width: 100%">
+                <table style="width: 100%">
                     <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
                 <tr>
                     <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
