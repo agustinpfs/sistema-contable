@@ -3,7 +3,6 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose'); 
 
-
 const app = express();
 
 // connection to db
@@ -22,7 +21,6 @@ app.set('port', process.env.PORT || 2000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'j')))
-
 
 
 // middlewares
