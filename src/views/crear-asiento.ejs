@@ -29,7 +29,7 @@
     <input type="date" name="fecha">
     <br>
     <br>
-    <input type="text" id = ctas name="cuenta" value= allInfo >
+    <input type="hidden" id = ctas name="cuenta" value= allInfo >
     <button type="submit" >crear asiento</button>
 </form>
 
@@ -40,8 +40,10 @@
                 <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
                 <% } %>
         </select>
-        <input type="radio" name="debe" value="debe" id='debe'> Deb
-        <input type="radio" name="haber" value="haber" id='haber'> Habe
+        <div class="form-group" id="dh">
+        <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
+        <label ><input type="radio" name="debehaber"id='haber' value="haber"> Haber</label> 
+        </div>
         <br>
         <br>
         <strong>Importe: </strong>
@@ -59,9 +61,9 @@
                 <table border="1" style = "width: 100%">
                 <thead>
                     <th style = "width: 25%">Nombre Cuenta</th>
-                    <th style = "width: 25%">hebe</th>
+                    <th style = "width: 25%">Debe</th>
                     <th style = "width: 25%">Haber</th>
-                    <th style = "width: 25%">importe</th>
+                    <!-- <th style = "width: 25%">importe</th> -->
                 </thead>
                 </table>
             </th>
@@ -80,9 +82,18 @@
                     <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
                 <tr>
                     <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
-                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].debe %></strong></td>
-                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].haber %></strong></td>
+                    <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
                     <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
+                    <%}else {%>
+                    <td style = "width: 25%"><strong></strong></td>   
+                    <%}%>
+                    <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
+                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
+                    <%} else{%>
+                    <td style = "width: 25%"><strong></strong></td>
+                    <%}%>
+                    <!-- <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td> -->
+               
                 </tr>
                 <% } %>
                 </table>

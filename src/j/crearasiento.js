@@ -8,8 +8,13 @@ function test() {
     // var allInfo = [];
     let cuentas = {};//create an empty object
     cuentas.nombre = document.getElementById('nombre').value;
-    cuentas.debe = document.getElementById('debe').value;
-    cuentas.haber = document.getElementById('haber').value;
+    var ele = document.getElementsByName('debehaber'); 
+    if(ele[0].checked){
+        cuentas.debe = document.getElementById('debe').value;
+    }
+    else if(ele[1].checked){
+        cuentas.haber = document.getElementById('haber').value;
+    }
     cuentas.importe = document.getElementById('importe').value;
     cuenta.push(cuentas);//you had to initialize the array before
     document.getElementById("ctas").value = JSON.stringify(cuenta);
