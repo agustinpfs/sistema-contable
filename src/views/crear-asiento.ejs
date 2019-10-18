@@ -24,9 +24,9 @@
 <h1>crear asiento</h1>
 <form action="/crear-asiento" method="post">
     <strong>Nª: </strong>
-    <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>">
+    <!-- <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>"> -->
     <strong>Fecha: </strong>
-    <input type="date" name="fecha">
+    <input type="date" name="fecha" required>
     <br>
     <br>
     <input type="hidden" id = ctas name="cuenta" value= allInfo >
@@ -72,7 +72,8 @@
     <tbody>
         <% for(var i=0; i < nvo_asiento.length; i++) { %>
         <tr>
-            <td><%= i + 1%></td>
+            <!-- <td><%= i + 1%></td> -->
+            <td><%= nvo_asiento[i].numero_asiento %></td>
             <!-- <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td> -->
             <td><strong><%=  nvo_asiento[i].fecha.getDate() + '/'+(nvo_asiento[i].fecha.getMonth()+1) +'/' +nvo_asiento[i].fecha.getFullYear() %></strong></td>
 

@@ -10,7 +10,9 @@ const AsientoSchema = new Schema({
     cuenta: Array,
 })
 
-AsientoSchema.plugin(AutoIncrement, { id: 'order_seq', inc_field: 'numero_asiento' });
+
+AsientoSchema.plugin(AutoIncrement, { inc_field: 'numero_asiento' });
+// AsientoSchema.plugin(AutoIncrement, { id: 'order_seq', inc_field: 'numero_asiento' });
 
 
 module.exports = mongoose.model('asientos', AsientoSchema);
