@@ -1,12 +1,12 @@
 <% include partials/_header %>
 
-<pre>
+<!-- <pre>
         <%= asientos %>
 </pre>
 
 <pre>
         <%= nvo_asiento %>
-</pre>
+</pre> -->
 
 
 <div>
@@ -30,7 +30,7 @@
     <br>
     <br>
     <input type="hidden" id = ctas name="cuenta" value= allInfo >
-    <button type="submit" >crear asiento</button>
+    <button type="submit" style = "position: absolute; bottom: 2em">crear asiento</button>
 </form>
 
 <form action="/crear-asiento" method="post">
@@ -41,8 +41,8 @@
                 <% } %>
         </select>
         <div class="form-group" id="dh">
-        <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
-        <label ><input type="radio" name="debehaber"id='haber' value="haber"> Haber</label> 
+            <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
+            <label ><input type="radio" name="debehaber"id='haber' value="haber"> Haber</label> 
         </div>
         <br>
         <br>
