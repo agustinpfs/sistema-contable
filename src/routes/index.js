@@ -60,6 +60,14 @@ router.get('/delete/:id', async (req, res, next) => {
     res.redirect('/addCount')
 });
 
+router.get('/libro-mayor', async (req, res, next) => {
+    // const asientos = await Count.find();
+    const nvo_asiento = await Asiento.find();
+    res.render('libro-mayor', {
+        nvo_asiento
+    });
+});
+
 
 
 module.exports = router;
