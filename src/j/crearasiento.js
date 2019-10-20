@@ -54,6 +54,7 @@ function asientoSubmit() {
 
     } else {
         alert('respete el principio de la partida doble!!!!!!!!')
+        location.reload()
     }
 
 
