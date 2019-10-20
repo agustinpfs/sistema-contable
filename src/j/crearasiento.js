@@ -19,17 +19,52 @@ function test() {
     cuenta.push(cuentas);//you had to initialize the array before
     document.getElementById("ctas").value = JSON.stringify(cuenta);
 
-    // Asiento.updateOne({ "numero_asiento": 1 }, { $set: { "cuenta": allInfo } });
-    // document.getElementById("demo").innerHTML = document.getElementById('importe').value;
-    // return cuentas;
-    // <pre>cuentas</pre>
-    // return allInfo;
 }
 
-        // document.getElementById("demo").innerHTML = test();
-        // test();
-        // const allInfo = [];
+// let asientoSubmit = () => {
 
-        // function insertar(){
-        // User.insertOne({ cuentas: allInfo });
-        // }
+function asientoSubmit() {
+    sumD = 0;
+    sumH = 0;
+    for (let i = 0; i < cuenta.length; i++) {
+        if (cuenta[i].debe) {
+            sumD = sumD + cuenta[i].importe;
+        }
+        if (cuenta[i].haber) {
+            sumH = sumH + cuenta[i].importe;
+        }
+        
+    }
+
+    if (sumD == sumH) {
+        alert('asiento correcto!!!!!!!!')
+        
+    } else {
+        alert('respete el principio de la partida doble!!!!!!!!')
+    }
+
+    // var count = cuenta.reduce(function (prevVal, currVal) {
+    // // return {
+    // //     adults: previousValue.adults + currentValue.adults,
+    // //     children: previousValue.children + currentValue.children
+    // // }
+
+    // return {
+    //     sumDebe: prevVal.importeDebe + currVal.importeDebe,
+    //     sumHaber: prevVal.importeHaber + currVal.importeHaber
+    // }
+    // sumD = count.sumDebe
+    // sumH = count.sumHaber
+
+    // })
+
+    // if (sumD == sumH) {
+    //     alert('asiento correcto!!!!!!!!')
+    // } else {
+    //     alert('respete el principio de la partida doble!!!!!!!!')
+    // }
+
+};
+
+    
+
