@@ -22,7 +22,7 @@
 
 
 <h1>crear asiento</h1>
-<form action="/crear-asiento" method="post">
+<form action="/crear-asiento" method="post" name="crearAsientoForm">
     <strong>Nª: </strong>
     <!-- <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>"> -->
     <strong>Fecha: </strong>
@@ -30,8 +30,8 @@
     <br>
     <br>
     <input type="hidden" id = ctas name="cuenta" value= allInfo >
-    <!-- <button type="submit" style = "position: absolute; bottom: 2em">crear asiento</button> -->
-     <input type="button" value="crear asiento" onClick="asientoSubmit()">
+    <button type="submit" style = "position: absolute; bottom: 2em" onClick="asientoSubmit()">crear asiento</button>
+     <!-- <input type="button" value="crear asiento" onClick="asientoSubmit()"> -->
 
 </form>
 

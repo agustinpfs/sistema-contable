@@ -23,6 +23,15 @@ function test() {
 
 // let asientoSubmit = () => {
 
+function submitform() {
+    var f = document.getElementsByTagName('form')[0];
+    if (f.checkValidity()) {
+        f.submit();
+    } else {
+        alert(document.getElementById('example').validationMessage);
+    }
+}
+
 function asientoSubmit() {
     sumD = 0;
     sumH = 0;
@@ -37,11 +46,16 @@ function asientoSubmit() {
     }
 
     if (sumD == sumH) {
-        alert('asiento correcto!!!!!!!!')
-        
+        // alert('asiento correcto!!!!!!!!')
+        var f = document.crearAsientoForm
+        if (f.checkValidity()) {
+            f.submit();
+        } 
+
     } else {
         alert('respete el principio de la partida doble!!!!!!!!')
     }
+
 
     // var count = cuenta.reduce(function (prevVal, currVal) {
     // // return {

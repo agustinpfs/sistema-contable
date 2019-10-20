@@ -11,7 +11,7 @@ const AsientoSchema = new Schema({
 })
 
 
-AsientoSchema.plugin(AutoIncrement, { inc_field: 'numero_asiento' });
+AsientoSchema.plugin(AutoIncrement, { inc_field: 'numero_asiento', reset: true });
 // AsientoSchema.plugin(AutoIncrement, { id: 'order_seq', inc_field: 'numero_asiento' });
 
 
