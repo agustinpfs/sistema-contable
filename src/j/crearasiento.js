@@ -19,18 +19,44 @@ function test() {
     cuenta.push(cuentas);//you had to initialize the array before
     document.getElementById("ctas").value = JSON.stringify(cuenta);
 
+
+
+    let pos = cuenta.length - 1
+    var table = document.getElementById("tablaCuentas")
+    var row = table.insertRow(pos)
+    var cell1 = row.insertCell(0)
+    var cell2 = row.insertCell(1)
+    var cell3 = row.insertCell(2)
+    cell1.innerHTML = cuenta[pos].nombre
+    if (cuenta[pos].debe) {
+        cell2.innerHTML = cuenta[pos].debe
+    }
+    else if (cuenta[pos].haber) {
+        cell2.innerHTML = cuenta[pos].haber
+    }
+    cell3.innerHTML = cuenta[pos].importe
+    table.style.border = "1px solid #000"
+
+
+    // document.nombre.focus();
+    document.getElementById("nombre").value = ""
+    document.getElementById("debe").checked = false
+    document.getElementById("haber").checked = false
+    document.getElementById("importe").value = ""
+    document.getElementById("nombre").focus();
+
 }
 
 // let asientoSubmit = () => {
 
-function submitform() {
-    var f = document.getElementsByTagName('form')[0];
-    if (f.checkValidity()) {
-        f.submit();
-    } else {
-        alert(document.getElementById('example').validationMessage);
-    }
-}
+// function submitform() {
+//     var f = document.getElementsByTagName('form')[0];
+//     if (f.checkValidity()) {
+//         f.submit();
+//     } else {
+//         alert(document.getElementById('example').validationMessage);
+//     }
+// }
 
 function asientoSubmit() {
     sumD = 0;
@@ -56,6 +82,9 @@ function asientoSubmit() {
         alert('respete el principio de la partida doble!!!!!!!!')
         location.reload()
     }
+
+    document.getElementById("fecha").value = ""
+
 
 
     // var count = cuenta.reduce(function (prevVal, currVal) {

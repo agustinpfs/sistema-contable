@@ -26,32 +26,39 @@
     <strong>Nª: </strong>
     <!-- <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>"> -->
     <strong>Fecha: </strong>
-    <input type="date" name="fecha" required>
+    <input type="date" name="fecha" id = "fecha" required>
     <br>
     <br>
     <input type="hidden" id = ctas name="cuenta" value= allInfo >
-    <!-- <button type="submit" style = "position: absolute; bottom: 2em" onClick="asientoSubmit()">crear asiento</button> -->
-     <input type="button" value="crear asiento" onClick="asientoSubmit()">
+    <button type="submit" onClick="asientoSubmit()">crear asiento</button>
+     <!-- <input type="button" value="crear asiento" onClick="asientoSubmit()"> -->
 
 </form>
 
 <form action="/crear-asiento" method="post">
-        <strong>Elija cuenta: </strong>
-        <select name='nombre' id='nombre'>
-                <% for(var i=0; i < asientos.length; i++) { %>
-                <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
-                <% } %>
-        </select>
-        <div class="form-group" id="dh">
-            <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
-            <label ><input type="radio" name="debehaber"id='haber' value="haber"> Haber</label> 
-        </div>
-        <br>
-        <br>
-        <strong>Importe: </strong>
-        <input type="number" name="importe" id="importe">
-        <input type="button" value="añadir al asiento" onClick="test()">
+    <h3>Insertar cuentas</h3>
+    <strong>Nombre de la cuenta: </strong>
+    <select name='nombre' id='nombre' required>
+        <option value="" selected disabled hidden>Elija Cuenta</option>
+
+        <% for(var i=0; i < asientos.length; i++) { %>
+        <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
+        <% } %>
+    </select>
+    <div class="form-group" id="dh">
+        <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
+        <label ><input type="radio" name="debehaber" id='haber' value="haber"> Haber</label> 
+    </div>
+    <br>
+    <br>
+    <strong>Importe: </strong>
+    <input type="number" name="importe" id="importe" required>
+    <input type="button" value="añadir al asiento" onClick="test()">
 </form> 
+
+<table style="width: 50%;" id="tablaCuentas">
+
+</table>
 
 
 <table border="1">
