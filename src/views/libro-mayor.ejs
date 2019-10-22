@@ -13,7 +13,7 @@
 
         <% for(var i=0; i < nvo_asiento.length; i++) { %>
             <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %>
-        <option value="/libro-mayo/<%= nvo_asiento[i].cuenta[j].nombre %>"><%= nvo_asiento[i].cuenta[j].nombre %></option>
+        <option value="/libro-mayor-ctas/<%= nvo_asiento[i].cuenta[j].nombre %>"><%= nvo_asiento[i].cuenta[j].nombre %></option>
         <% } %>
         <% } %>
     </select>
