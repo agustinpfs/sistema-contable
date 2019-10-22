@@ -70,7 +70,7 @@ router.get('/libro-mayor', async (req, res, next) => {
 
 router.get('/libro-mayo/:name', async (req, res, next) => {
     const { name } = req.params;
-    const lmayor = await Asiento.find({"cuenta.nombre":name});
+    const lmayor = await Asiento.find({},{cuenta:{$elemMatch:{nombre:name}}})
     // res.redirect('/libro-mayo')
 
     res.render('libro-mayo', {
