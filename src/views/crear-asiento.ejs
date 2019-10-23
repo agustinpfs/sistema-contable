@@ -21,14 +21,13 @@
     <h3>Insertar cuentas</h3>
     <strong>Nombre de la cuenta: </strong>
     <select name='nombre' id='nombre' required>
-    <% for(let i=0; i < asientos.length; i++) { %>
+    <% for( i=0; i < asientos.length; i++) { %>
         <option value="" selected disabled hidden>Elija Cuenta</option>
         <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
     <% } %>
     </select>
-    <% for(let i=0; i < asientos.length; i++) { %>
-        <input type="hidden" name="tipo" id="tipo" value="<%= asientos[i].type %>">
-    <% } %>
+   
+    
 
     <div class="form-group" id="dh">
         <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
@@ -52,7 +51,7 @@
             <th style = "width: 85%">
                 <table border="1" style = "width: 100%">
                     <thead>
-                        <th style = "width: 25%">Nombre Cuenta</th>
+                        <th style = "width: 50%">Nombre Cuenta</th>
                         <th style = "width: 25%">Debe</th>
                         <th style = "width: 25%">Haber</th>
                     </thead>
@@ -70,10 +69,10 @@
                 <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
                     <tr>
                         <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
-                        <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
+                        <td style = "width: %"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
                         <%}%>
                         <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
-                        <td style = "width: 25%"><strong style="margin-left: 3rem"><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
+                        <td style = "width: %"><strong style="margin-left: 3rem"><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
                         <%}%>
                         <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
                         <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>

@@ -12,7 +12,24 @@ function test() {
         cuentas.haber = document.getElementById('haber').value;
     }
     cuentas.importe = document.getElementById('importe').value;
-    cuentas.tipo = document.getElementById('tipo').value;
+    // cuentas.tipo = document.getElementById('tipo').value;
+    pepe = cuentas.nombre;
+    if (pepe == "Inmuebles" || "Mercaderías" || "Muebles y útiles" ||
+    "Documentos a cobrar" || "Caja" || "Bancos") {
+        cuentas.tipo = "ACTIVO"
+    }
+    if (pepe == "Proveedores" || "Sueldos a pagar" || "Anticipo a clientes" ||
+    "Documentos a pagar") {
+        cuentas.tipo = "PASIVO"
+    }
+    if (pepe == "Capital social") {
+        cuentas.tipo = "PN"
+    }
+    if (pepe == "Ventas") {
+        cuentas.tipo = "RESULTADO"
+    }
+    
+
     cuenta.push(cuentas);
     document.getElementById("ctas").value = JSON.stringify(cuenta);
 
