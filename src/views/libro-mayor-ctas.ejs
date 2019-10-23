@@ -19,45 +19,42 @@
     </thead>
 
     <tbody>
-
+<% let saldoSum = 0 %>
         <% for(var i=0; i < lmayor.length; i++) { %>
-            <% let saldoSum = 7 %>
+            
          <% for(var j=0; j < lmayor[i].cuenta.length; j++) { %>
             <tr>
             <%if(lmayor[i].cuenta[j].nombre==count_name){%>
-            <!-- <td><%= i + 1%></td> -->
             <td><%= lmayor[i].numero_asiento %></td>
-            <!-- <td><strong><%= lmayor[i].numero_asiento %></strong></td> -->
             <td><strong><%=  lmayor[i].fecha.getDate() + '/'+(lmayor[i].fecha.getMonth()+1) +'/' +lmayor[i].fecha.getFullYear() %></strong>
             </td>
     
     
                 <%if(lmayor[i].cuenta[j].debe=="debe"){%>
-                <td style="width: 25%"><strong><%= lmayor[i].cuenta[j].importe %></strong></td>
+                    <td style="width: 25%"><strong><%= lmayor[i].cuenta[j].importe %></strong></td>
                 <%}else {%>
-                <td style="width: 25%"><strong></strong></td>
+                    <td style="width: 25%"><strong></strong></td>
                 <%}%>
+
                 <%if(lmayor[i].cuenta[j].haber=="haber"){%>
-                <td style="width: 25%"><strong><%= lmayor[i].cuenta[j].importe%></strong></td>
+                    <td style="width: 25%"><strong><%= lmayor[i].cuenta[j].importe%></strong></td>
                 <%} else{%>
-                <td style="width: 25%"><strong></strong></td>
+                    <td style="width: 25%"><strong></strong></td>
                 <%}%>
                 <%if(lmayor[i].cuenta[j].debe=="debe"){%>
-                <td style="width: 25%"><strong><%= parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %></strong></td>
-                    <!-- <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %> -->
-                    <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %>
-                <%}else {%>
-                <td style="width: 25%"><strong><%= lmayor[i].cuenta[j].importe - saldoSum %></strong></td>
-                <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) - parseInt(saldoSum) %>
-
-                 <!-- <%  saldoSum = lmayor[i].cuenta[j].importe - saldoSum %> -->
-                <!-- <td style = "width: 25%"><strong><%= lmayor[i].cuenta[j].importe %></strong>
-            </td> -->
+                    <td style="width: 25%"><strong><%= parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %></strong>
+                        <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %>
+                <% } %>
+                <%if(lmayor[i].cuenta[j].haber=="haber"){%>
+                    <td style="width: 25%"><strong><%= saldoSum - lmayor[i].cuenta[j].importe %></strong>
+                    <%  saldoSum = parseInt(saldoSum) - parseInt(lmayor[i].cuenta[j].importe) %>
+                 <% } %>
+                 </td>
     
-        <% } %>
-        <% } %>
+               
+            <% } %>
     
-    
+                        
     
         </tr>
         <% } %>
