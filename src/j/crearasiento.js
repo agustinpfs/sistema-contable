@@ -1,12 +1,8 @@
-// const mongoose = require('mongoose');
-// const Asiento = require('../model/asientos');
-
 const cuenta = [];
 
 function test() {
 
-    // var allInfo = [];
-    let cuentas = {};//create an empty object
+    let cuentas = {};
     cuentas.nombre = document.getElementById('nombre').value;
     var ele = document.getElementsByName('debehaber'); 
     if(ele[0].checked){
@@ -17,7 +13,7 @@ function test() {
     }
     cuentas.importe = document.getElementById('importe').value;
     cuentas.tipo = document.getElementById('tipo').value;
-    cuenta.push(cuentas);//you had to initialize the array before
+    cuenta.push(cuentas);
     document.getElementById("ctas").value = JSON.stringify(cuenta);
 
 
@@ -39,7 +35,6 @@ function test() {
     table.style.border = "1px solid #000"
 
 
-    // document.nombre.focus();
     document.getElementById("nombre").value = ""
     document.getElementById("debe").checked = false
     document.getElementById("haber").checked = false
@@ -47,17 +42,6 @@ function test() {
     document.getElementById("nombre").focus();
 
 }
-
-// let asientoSubmit = () => {
-
-// function submitform() {
-//     var f = document.getElementsByTagName('form')[0];
-//     if (f.checkValidity()) {
-//         f.submit();
-//     } else {
-//         alert(document.getElementById('example').validationMessage);
-//     }
-// }
 
 function asientoSubmit() {
     const sumD = 0;
@@ -70,12 +54,10 @@ function asientoSubmit() {
         }
         if (cuenta[i].haber) {
             sumH = sumH + cuenta[i].importe;
-        }
-        
+        }        
     }
 
     if (sumD == sumH) {
-        // alert('asiento correcto!!!!!!!!')
         var f = document.crearAsientoForm
         if (f.checkValidity()) {
             f.submit();
@@ -87,30 +69,6 @@ function asientoSubmit() {
     }
 
     document.getElementById("fecha").value = ""
-
-
-
-    // var count = cuenta.reduce(function (prevVal, currVal) {
-    // // return {
-    // //     adults: previousValue.adults + currentValue.adults,
-    // //     children: previousValue.children + currentValue.children
-    // // }
-
-    // return {
-    //     sumDebe: prevVal.importeDebe + currVal.importeDebe,
-    //     sumHaber: prevVal.importeHaber + currVal.importeHaber
-    // }
-    // sumD = count.sumDebe
-    // sumH = count.sumHaber
-
-    // })
-
-    // if (sumD == sumH) {
-    //     alert('asiento correcto!!!!!!!!')
-    // } else {
-    //     alert('respete el principio de la partida doble!!!!!!!!')
-    // }
-
 };
 
     

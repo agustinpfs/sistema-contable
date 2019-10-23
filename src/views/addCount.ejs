@@ -1,20 +1,10 @@
 <% include partials/_header %>
 
-<pre>
-        <%= counts %>
-
-</pre>
-
 <div>
     <a href="/addCount">Crear Cuenta</a>
     <a href="/crear-asiento">Crear Asiento</a>
     <a href="/ver-libros">Ver Libros</a>
 </div>
-<br>
-<br>
-<br>
-<br>
-
 
 <form action="/addCount" method="post">
     <input type="text" name="name" placeholder="Nombre de cuenta">
@@ -26,10 +16,7 @@
         <option value='RESULTADO'>RESULTADO</option>
     </select>
     <button type="submit">Crear</button>
-
 </form>
-
-
 
 <table>
     <thead>
@@ -50,20 +37,15 @@
                     Delete 
                 </a>
             </td>
-               <td>
-           
-                    <a href="/edit/<%= counts[i]._id %>">
-                        Edit
-                    </a>
-
-                    <!-- <form action="/edit/<%= counts._id %>" method="post"> -->
-    </td>
-                   
-        
+            <td>           
+                <a href="/edit/<%= counts[i]._id %>">
+                    Edit
+                </a>
+            </td>
         </tr>
         <% } %>
-        </tbody>
-        </table>
+    </tbody>
+</table>
 
 
 

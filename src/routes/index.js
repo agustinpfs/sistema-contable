@@ -74,30 +74,10 @@ router.get('/libro-mayor-ctas/:name', async (req, res, next) => {
 
     const lmayor = await Asiento.find({ "cuenta.nombre": name });
     const count_name = name
-
-    // const lmayor = await Asiento.find({cuenta:{$elemMatch:{nombre:name}}})
-    // const lmayor = await Asiento.find({}, { cuenta: { $elemMatch: { nombre: name } } })
-
-
-    // for (var i = 0; i < lmayor.length; i++){
-    //     for (var j = 0; j < lmayor[i].cuenta.length; j++){
-    //         if (lmayor[i].cuenta[j].nombre == name){
-    //             lma = await Asiento.find({ "nombre": name})
-    //             // lm = lmayor[i]._id
-                
-    //         }
-    //         // lma = await Asiento.find({ "_id": lm})
-            
-    //     }
-    // }
-
-    // res.redirect('/libro-mayo')
-
     res.render('libro-mayor-ctas', {
         lmayor, count_name
     })
 });
-
 
 
 module.exports = router;

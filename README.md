@@ -12,19 +12,6 @@ Características:
 * Node.js
 * MongoDB
 
-
-## Getting Started
-
-Open terminal at Sistema-contable folder and:
-
-```
-npm init
-```
-
-```
-npm install
-```
-
 ## Run
 
 ```
@@ -35,7 +22,7 @@ npm install
 npm run dev
 ```
 
-Display in localhost:4000/
+Display in localhost:2000/
 
 
 ## Contributing
@@ -50,7 +37,7 @@ Display in localhost:4000/
 
 * **Agustin Palmieri** - [Agustinpfs](https://github.com/agustinpfs)
 
-* **Santiago Perez** - [Santiago](https://github.com/SantiPerez17)
+* **Santiago Perez** - [SantiPerez17](https://github.com/SantiPerez17)
 
 ## License
 

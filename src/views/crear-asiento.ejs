@@ -1,14 +1,5 @@
 <% include partials/_header %>
 
-<!-- <pre>
-        <%= asientos %>
-</pre>
-
-<pre>
-        <%= nvo_asiento %>
-</pre> -->
-
-
 <div>
     <a href="/addCount">Crear Cuenta</a>
     <a href="/crear-asiento">Crear Asiento</a>
@@ -24,45 +15,36 @@
 <h1>crear asiento</h1>
 <form action="/crear-asiento" method="post" name="crearAsientoForm">
     <strong>Nª: </strong>
-    <!-- <input type="number" name="numero_asiento" value="<%= i + 1%>" placeholder="<%= i + 1 %>"> -->
     <strong>Fecha: </strong>
     <input type="date" name="fecha" id = "fecha" required>
-    <br>
-    <br>
     <input type="hidden" id = ctas name="cuenta" value= allInfo >
     <button type="submit" onClick="asientoSubmit()">crear asiento</button>
-     <!-- <input type="button" value="crear asiento" onClick="asientoSubmit()"> -->
-
 </form>
 
 <form action="/crear-asiento" method="post">
     <h3>Insertar cuentas</h3>
     <strong>Nombre de la cuenta: </strong>
     <select name='nombre' id='nombre' required>
-            <% for(let i=0; i < asientos.length; i++) { %>
+    <% for(let i=0; i < asientos.length; i++) { %>
         <option value="" selected disabled hidden>Elija Cuenta</option>
-
         <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
-        <% } %>
+    <% } %>
     </select>
     <% for(let i=0; i < asientos.length; i++) { %>
-                <input type="hidden" name="tipo" id="tipo" value="<%= asientos[i].type %>">
-
-        <% } %>
+        <input type="hidden" name="tipo" id="tipo" value="<%= asientos[i].type %>">
+    <% } %>
 
     <div class="form-group" id="dh">
         <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
         <label ><input type="radio" name="debehaber" id='haber' value="haber"> Haber</label> 
     </div>
-    <br>
-    <br>
     <strong>Importe: </strong>
     <input type="number" name="importe" id="importe" required>
     <input type="button" value="añadir al asiento" onClick="test()">
 </form> 
 
 <table style="width: 50%;" id="tablaCuentas">
-
+    <h3>Vista previa</h3>
 </table>
 
 
@@ -73,56 +55,48 @@
             <th style = "width: 10%">fecha</th>
             <th style = "width: 85%">
                 <table border="1" style = "width: 100%">
-                <thead>
-                    <th style = "width: 25%">Nombre Cuenta</th>
-                    <th style = "width: 25%">Debe</th>
-                    <th style = "width: 25%">Haber</th>
-                    <!-- <th style = "width: 25%">importe</th> -->
-                </thead>
+                    <thead>
+                        <th style = "width: 25%">Nombre Cuenta</th>
+                        <th style = "width: 25%">Debe</th>
+                        <th style = "width: 25%">Haber</th>
+                    </thead>
                 </table>
             </th>
         </tr>
     </thead>
     <tbody>
-        <% for(var i=0; i < nvo_asiento.length; i++) { %>
+    <% for(var i=0; i < nvo_asiento.length; i++) { %>
         <tr>
-            <!-- <td><%= i + 1%></td> -->
             <td><%= nvo_asiento[i].numero_asiento %></td>
-            <!-- <td><strong><%= nvo_asiento[i].numero_asiento %></strong></td> -->
             <td><strong><%=  nvo_asiento[i].fecha.getDate() + '/'+(nvo_asiento[i].fecha.getMonth()+1) +'/' +nvo_asiento[i].fecha.getFullYear() %></strong></td>
-
-
             <td>  
                 <table style="width: 100%">
-                    <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
-                <tr>
-                    <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
-                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
-                    <%}%>
-                    <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
-                    <td style = "width: 25%"><strong style="margin-left: 3rem"><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
-                    <%}%>
-                    <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
-                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
-                    <%}else {%>
-                    <td style = "width: 25%"><strong></strong></td>   
-                    <%}%>
-                    <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
-                    <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
-                    <%} else{%>
-                    <td style = "width: 25%"><strong></strong></td>
-                    <%}%>
-                    <!-- <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td> -->
-               
-                </tr>
+                <% for(var j=0; j < nvo_asiento[i].cuenta.length; j++) { %> 
+                    <tr>
+                        <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
+                        <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
+                        <%}%>
+                        <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
+                        <td style = "width: 25%"><strong style="margin-left: 3rem"><%= nvo_asiento[i].cuenta[j].nombre %></strong></td>
+                        <%}%>
+                        <%if(nvo_asiento[i].cuenta[j].debe=="debe"){%>
+                        <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
+                        <%}else {%>
+                        <td style = "width: 25%"><strong></strong></td>   
+                        <%}%>
+                        <%if(nvo_asiento[i].cuenta[j].haber=="haber"){%>
+                        <td style = "width: 25%"><strong><%= nvo_asiento[i].cuenta[j].importe %></strong></td>
+                        <%} else{%>
+                        <td style = "width: 25%"><strong></strong></td>
+                        <%}%>
+                    </tr>
                 <% } %>
                 </table>
             </td>
-            
-
-
         </tr>
-        <% } %>
+    <% } %>
     </tbody>
 </table>
+
+
 <% include partials/_footer%>

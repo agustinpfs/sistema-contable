@@ -1,9 +1,4 @@
-k<% include partials/_header %>
-
-<pre>
-    <%= count %>
-</pre>
-
+<% include partials/_header %>
 
 
 <form action="/edit/<%= count._id %>" method="post">
@@ -15,9 +10,8 @@ k<% include partials/_header %>
         <option value='PN'>PN</option>
         <option value='RESULTADO'>RESULTADO</option>
     </select>
-
     <button type="submit">
-        Update
+        Actualizar
     </button>
 </form>
 
