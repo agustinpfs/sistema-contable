@@ -14,12 +14,12 @@ function test() {
     cuentas.importe = document.getElementById('importe').value;
     // cuentas.tipo = document.getElementById('tipo').value;
     pepe = cuentas.nombre;
-    if (pepe == "Inmuebles" || "Mercaderías" || "Muebles y útiles" ||
-    "Documentos a cobrar" || "Caja" || "Bancos") {
+    if (pepe == "Inmuebles" || pepe =="Mercaderías" || pepe =="Muebles y útiles" ||
+    pepe == "Documentos a cobrar" || pepe == "Caja" || pepe =="Bancos") {
         cuentas.tipo = "ACTIVO"
     }
-    if (pepe == "Proveedores" || "Sueldos a pagar" || "Anticipo a clientes" ||
-    "Documentos a pagar") {
+    if (pepe == "Proveedores" || pepe =="Sueldos a pagar" || pepe == "Anticipo a clientes" ||
+    pepe == "Documentos a pagar") {
         cuentas.tipo = "PASIVO"
     }
     if (pepe == "Capital social") {
@@ -63,8 +63,6 @@ function test() {
 function asientoSubmit() {
     const sumD = 0;
     const sumH = 0;
-    console.log(sumD)
-    console.log(sumH)
     for (let i = 0; i < cuenta.length; i++) {
         if (cuenta[i].debe) {
             sumD = sumD + cuenta[i].importe;
