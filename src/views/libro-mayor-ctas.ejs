@@ -39,12 +39,13 @@
 
                     <%if(lmayor[i].cuenta[j].debe=="debe"){%>
 
-                        <%if(lmayor[i].cuenta[j].tipo=="ACTIVO"){%>
-                            <td style="width: 25%"><strong><%= parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %></strong></td>
-                            <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %>
-                        <% } else{%> 
+                        <%if(lmayor[i].cuenta[j].tipo=="PASIVO"){%>
                             <td style="width: 25%"><strong><%= saldoSum - lmayor[i].cuenta[j].importe %></strong></td>
                             <%  saldoSum = parseInt(saldoSum) - parseInt(lmayor[i].cuenta[j].importe) %>
+
+                        <% } else{%> 
+                            <td style="width: 25%"><strong><%= parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %></strong></td>
+                            <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %>
                         <% } %>
 
                     <% } %>
@@ -52,12 +53,13 @@
 
                     <%if(lmayor[i].cuenta[j].haber=="haber"){%>
 
-                        <%if(lmayor[i].cuenta[j].tipo=="ACTIVO"){%>
-                            <td style="width: 25%"><strong><%= saldoSum - lmayor[i].cuenta[j].importe %></strong></td>
-                            <%  saldoSum = parseInt(saldoSum) - parseInt(lmayor[i].cuenta[j].importe) %>
-                        <% } else{%>
+                        <%if(lmayor[i].cuenta[j].tipo=="PASIVO"){%>
                             <td style="width: 25%"><strong><%= parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %></strong></td>
                             <%  saldoSum = parseInt(lmayor[i].cuenta[j].importe) + parseInt(saldoSum) %>
+
+                        <% } else{%>
+                            <td style="width: 25%"><strong><%= saldoSum - lmayor[i].cuenta[j].importe %></strong></td>
+                            <%  saldoSum = parseInt(saldoSum) - parseInt(lmayor[i].cuenta[j].importe) %>
                         <% } %>
 
                     <% } %>   
