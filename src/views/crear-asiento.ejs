@@ -39,12 +39,17 @@
     <h3>Insertar cuentas</h3>
     <strong>Nombre de la cuenta: </strong>
     <select name='nombre' id='nombre' required>
+            <% for(let i=0; i < asientos.length; i++) { %>
         <option value="" selected disabled hidden>Elija Cuenta</option>
 
-        <% for(var i=0; i < asientos.length; i++) { %>
         <option value="<%= asientos[i].name %>"><%= asientos[i].name %></option>
         <% } %>
     </select>
+    <% for(let i=0; i < asientos.length; i++) { %>
+                <input type="hidden" name="tipo" id="tipo" value="<%= asientos[i].type %>">
+
+        <% } %>
+
     <div class="form-group" id="dh">
         <label ><input type="radio" name="debehaber" id='debe' value="debe"> Debe</label> 
         <label ><input type="radio" name="debehaber" id='haber' value="haber"> Haber</label> 

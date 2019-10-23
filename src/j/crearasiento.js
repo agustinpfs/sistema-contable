@@ -16,6 +16,7 @@ function test() {
         cuentas.haber = document.getElementById('haber').value;
     }
     cuentas.importe = document.getElementById('importe').value;
+    cuentas.tipo = document.getElementById('tipo').value;
     cuenta.push(cuentas);//you had to initialize the array before
     document.getElementById("ctas").value = JSON.stringify(cuenta);
 
@@ -59,8 +60,10 @@ function test() {
 // }
 
 function asientoSubmit() {
-    sumD = 0;
-    sumH = 0;
+    const sumD = 0;
+    const sumH = 0;
+    console.log(sumD)
+    console.log(sumH)
     for (let i = 0; i < cuenta.length; i++) {
         if (cuenta[i].debe) {
             sumD = sumD + cuenta[i].importe;

@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const AsientoSchema = new Schema({
     numero_asiento: Number,
     fecha: Date,
+    tipo: String,
     cuenta: Array,
 })
 
